@@ -1,0 +1,37 @@
+<html ng-app="myApp">
+        <head> 
+            <title>angular crud</title>   
+            <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        </head>
+    <body class="container" ng-controller="profilectrl as profile">
+        <div class="row">
+                    <div class="list-group" class="col-sm-6">
+                          <a href="#" class="list-group-item" ng-repeat = "people in profile.data" ng-click = "profile.onePerson(people)">{{people.name}}</a>
+                    </div>
+        
+                    <div class="media" ng-if = "profile.oneguy" class="col-sm-6">
+                          <div class="media-left">
+                            <img ng-src="{{profile.oneguy.image}}" class="media-object" style="width:60px" alt="loading...">
+                          </div>
+                          <div class="media-body">
+                            <h4 class="media-heading" ng-hide = "profile.editvalue"> Name : {{profile.oneguy.name}}</h4>
+                              <p ng-show = "profile.editvalue"> Name : <input type="text" ng-model = "profile.oneguy.name"></p>
+                              <p ng-hide = "profile.editvalue"> Age :  {{profile.oneguy.age}}</p>
+                              <p  ng-show = "profile.editvalue"> Age : <input type="text" ng-model = "profile.oneguy.age"></p>
+                              <p ng-hide = "profile.editvalue"> Email : {{profile.oneguy.email}}</p>
+                              <p  ng-show = "profile.editvalue">Email : <input type="text" ng-model = "profile.oneguy.email"></p>
+                              <button class="btn btn-info" ng-click="profile.editprofile()" ng-hide = "profile.editvalue">Edit</button>
+                              <button class="btn btn-info" ng-click="profile.editprofile()" ng-show = "profile.editvalue">Sava</button>
+                          </div>
+                    </div>
+        </div>
+
+        
+        
+        <script src="node_modules/angular/angular.min.js"></script>
+        <script src="app.js"></script>
+        <script src="servieces/profiledata.js"></script>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
+    </body>
+</html>
