@@ -4,6 +4,7 @@
             <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
         </head>
     <body class="container" ng-controller="profilectrl as profile">
+        
         <div class="row">
                     <div class="list-group" class="col-sm-6">
                           <a href="#" class="list-group-item" ng-repeat = "people in profile.data" ng-click = "profile.onePerson(people)">{{people.name}}</a>
